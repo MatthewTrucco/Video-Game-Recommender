@@ -1,0 +1,33 @@
+<section class="search-section">
+  <label for="category" class="category-label">Choose a category:</label>
+  <div class="controls">
+    <select id="category" name="category" class="category-select">
+      <option value="Action">Action</option>
+      <option value="Adventure">Adventure</option>
+      <option value="RPG">RPG</option>
+      <option value="Sports">Sports</option>
+      <option value="FPS">FPS</option>
+      <option value="Strategy">Strategy</option>
+      <option value="Racing">Racing</option>
+      <!-- Add more categories as needed -->
+    </select>
+    <button onclick="getRecommendation()" class="search-btn">
+      <i class="fas fa-search icon"></i>Get Recommendation
+    </button>
+  </div>
+</section>
+
+<section class="result-section" id="result">
+  <h2><i class="fas fa-gamepad icon"></i>Game Recommendation</h2>
+  <div id="error-container" class="error"></div>
+  <div id="recommendations">
+    <!-- Game recommendations will be displayed here -->
+  </div>
+</section>
+
+<section class="result-section" id="bookmarks">
+  <h2><i class="fas fa-bookmark icon"></i>Bookmarked Games</h2>
+  <div id="bookmarked-games">
+    <!-- Bookmarked games will be displayed here -->
+  </div>
+</section>
