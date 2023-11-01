@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const { engine } = require('express-handlebars');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 
 app.engine('handlebars', engine());
@@ -9,10 +10,8 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
-});
+// Enable CORS for all routes
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.render('index');
