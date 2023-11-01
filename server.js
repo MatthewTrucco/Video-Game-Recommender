@@ -10,8 +10,11 @@ app.set('view engine', 'handlebars');
 
 app.use(express.static('public'));
 
-// Enable CORS for all routes
-app.use(cors());
+// Enable CORS for the front-end app
+app.use(cors({
+  origin: 'https://video-game-recommendation-039abd955b95.herokuapp.com',
+  optionsSuccessStatus: 200
+}));
 
 app.get('/', (req, res) => {
   res.render('index');
@@ -31,7 +34,7 @@ app.get('/recommend', async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const totalPages = 100; 
+    const totalPages = 100;
     const randomPage = Math.floor(Math.random() * totalPages) + 1;
 
     const response = await axios.get(`https://api.rawg.io/api/games`, {
