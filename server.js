@@ -6,7 +6,6 @@ const app = express();
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
-
 app.use(express.static('public'));
 
 app.use((req, res, next) => {
@@ -32,7 +31,7 @@ app.get('/recommend', async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
 
-    const totalPages = 100; // Assume there are 100 pages of results for this genre
+    const totalPages = 100;
     const randomPage = Math.floor(Math.random() * totalPages) + 1;
 
     const response = await axios.get(`https://api.rawg.io/api/games`, {
@@ -72,7 +71,6 @@ function translateCategoryToGenreSlug(category) {
     'Strategy': 'strategy',
     'Sports': 'sports',
     'Racing': 'racing',
-    // Add more categories as needed
   };
   return mappings[category] || null;
 }
