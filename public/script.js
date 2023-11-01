@@ -1,6 +1,6 @@
 function getRecommendation() {
   const category = document.getElementById('category').value;
-  fetch(`http://localhost:3000/recommend?category=${category}`)
+  fetch(`/recommend?category=${category}`)
     .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
